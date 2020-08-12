@@ -1,0 +1,78 @@
+html, body{height: 100%;}
+.content{
+  background-color: #F4F4F4;
+  position: relative;
+  min-height: 70%;
+  width: 100%;
+  padding: 30px;
+  padding-top: 10px;
+}
+.content h2{
+  width: 100%;
+  font-size: 23px;
+  text-align: center;
+  padding: 10px;
+}
+.todo{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.taskDiv{
+  height: 150px;
+  width: 150px;
+  border-radius: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.taskToDo{
+  position: relative;
+  height: 80%;
+  width: 100%;
+  background-color: cornflowerblue;
+}
+.taskToDo .delete{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  border: none;
+  color: red;
+  background-color: rgb(58, 58, 58);
+  padding: 2px;
+}
+.taskDiv .taskToDo p{
+  line-height: 120px;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+.taskDone, .taskDoing{
+  border: none;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 20%;
+  transition: background-color 0.5s;
+}
+.taskDone{
+  background-color: seagreen;
+}
+.taskDoing{
+  background-color: darkorange;
+}
+.taskDone button, .taskDoing button{
+  width: 100%;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+.taskDone:hover{
+  background-color: darkgoldenrod;
+}
+.taskDoing:hover{
+  background-color: seagreen;
+}
+.taskDone button:focus , .taskDoing button:focus{
+  outline: none;
+}

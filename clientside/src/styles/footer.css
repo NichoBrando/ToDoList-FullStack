@@ -1,0 +1,49 @@
+.Footer{
+  background-color: #373737;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  min-height: 20%;
+}
+.Footer h3{
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 5px;
+  border-bottom: 5px solid blanchedalmond;
+}
+.footerContents{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+.footerContents > div{
+  margin-top: 5px;
+}
+.footerContents div ul{
+  list-style-type: none;
+}
+.contacts a{
+  color: white;
+  text-decoration: none;
+  transition: 0.4s color;
+}
+.contacts a:hover{
+  color: red;
+}
+@media (min-width: 600px){
+  .footerContents{
+    flex-direction: row;
+    text-align: start;
+  }
+  .author{
+    width: 20%;
+  }
+  .aboutProject{
+    width: 20%;
+  }
+}

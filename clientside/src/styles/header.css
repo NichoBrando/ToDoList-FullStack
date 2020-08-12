@@ -1,0 +1,27 @@
+.topHeader{
+  width: 100%;
+  background-color: #A5BEFF;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 10%;
+}
+.topHeader h1, button{
+  font-family: 'Lemonada', cursive;
+}
+.topHeader h1{
+  font-size: 20px;
+}
+.topHeader button{
+  border: none;
+  background-color: rgba(0,0,0,0);
+  font-size: 18px;
+  transition: 0.3s color;
+}
+.topHeader button:hover{
+  color: lightcoral;
+}
+.topHeader button:focus{
+  outline: none;
+}
