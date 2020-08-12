@@ -17,14 +17,18 @@ class User(db.Model):
     self.username = username
     self.password = password
 
-def login(user, passwd):
-  userExists = User.query.filter(User.username == user)
-  if userExists != None:
+def login(username, passwd):
+  userExists = User.query.filter(username == username).first()
+  if userExists:
+    print(userExists.password, passwd)
     if userExists.password == passwd:
-      return UserExists.id
-    return "Invalid password"
-  return "Username doesn\'t exists"
+      return userExists.id
+    return -1
+  return 0
 
 def existUser(user):
-  result = User.query.filter(User.username == user)
-  return 1 if type(result) == "str" else 0 
+  result = db.session.query(db.exists().where(User.username == user)).scalar()
+  return result
+
+def checkPassword(passwd1, passwd2):
+  return passwd1 == passwd2
