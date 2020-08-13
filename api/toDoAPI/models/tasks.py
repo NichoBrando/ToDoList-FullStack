@@ -25,3 +25,11 @@ def updateTask(task, userid):
     db.session.commit()
     return "Sucess"
   return 0
+
+def deleteTask(task, userid):
+  taskQuery = Tasks.query.filter(Tasks.user_id == userid).filter(Tasks.id == task).first()
+  if taskQuery != None:
+    db.session.delete(taskQuery)
+    db.session.commit()
+    return "Sucess"
+  return 0

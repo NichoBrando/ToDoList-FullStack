@@ -6,13 +6,11 @@ from flask import jsonify, request
 @app.route("/api/register", methods = ["POST"])
 def registerRoute():
     req = request.get_json()
-    print(req)
     if len(req['username']) < 5:
       return jsonify('Invalid username')
     if len(req['password']) < 5:
       return jsonify('Invalid password')
     newUser = User(req['username'], hashPassword(req['password']))
-    print(existUser(req['username']))
     if existUser(req['username']):
       return jsonify('Username already exists')
     else:
@@ -64,14 +62,16 @@ def createTaskRoute():
   db.session.commit()
   return jsonify('Create task: {}'.format(req['content']))
 
-@app.route("/api/updateTask/<taskid>")
+@app.route("/api/updateTask/<taskid>", methods=["GET"])
 def updateTaskRoute(taskid):
   exists = sessionManager.getSession(request.remote_addr)
   if exists == False:
     return jsonify("Not logged")
   return jsonify(updateTask(taskid, exists))
 
-"""
-@app.route("api/updatetask/<taskid>")
-@app.route("api/deletetask/<taskid>")
-"""
+@app.route("/api/deleteTask/<taskid>", methods=["GET"])
+def deleteTaskRoute(taskid):
+  exists = sessionManager.getSession(request.remote_addr)
+  if exists == False:
+    return jsonify("Not logged")
+  return jsonify(deleteTask(taskid, exists))

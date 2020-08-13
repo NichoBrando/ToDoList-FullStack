@@ -20,7 +20,6 @@ class User(db.Model):
 def login(username, passwd):
   userExists = User.query.filter(username == username).first()
   if userExists:
-    print(userExists.password, passwd)
     if userExists.password == passwd:
       return userExists.id
     return -1
