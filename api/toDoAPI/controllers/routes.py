@@ -1,5 +1,6 @@
 from toDoAPI import app, db, sessionManager
 from toDoAPI.models.user import *
+from toDoAPI.models.tasks import *
 from flask import jsonify, request
 
 @app.route("/api/register", methods = ["POST"])
@@ -45,9 +46,17 @@ def logoutRoute():
   else:
     return jsonify("Not logged")
 
+@app.route("/api/gettasks", methods=["GET"])
+def getTasksRoute():
+  exists = sessionManager.getSession(request.remote_addr)
+  if exists == False:
+    return jsonify('Not logged')
+  newTasks = Tasks(sessionManager.getSession(request.remote_addr), 'Afazer', 0)
+  db.session.add(newTasks)
+  db.session.commit()
+  return jsonify(getTasks(exists))
+
 """
-@app.route("/api/login")
-@app.route("/api/haveuser")
 @app.route("api/gettasks")
 @app.route("api/updatetask/<taskid>")
 @app.route("api/deletetask/<taskid>")

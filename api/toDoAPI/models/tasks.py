@@ -2,9 +2,18 @@ from toDoAPI import db
 
 class Tasks(db.Model):
   id = db.Column(db.Integer, primary_key = True)
-  task = db.Column(db.String(50), unique = True)
-  taskStatus = db.Column(db.Integer)
+  user_id = db.Column(db.String(50))
+  task = db.Column(db.String(100))
+  status = db.Column(db.Integer)
+
+  def __init__(self, userid, task, status):
+    self.user_id = userid
+    self.task = task
+    self.status = status
 
 def getTasks(userid):
-  tasks = User.query.filter(User.id == userid)
-  return tasks if tasks != None else []
+  tasks = Tasks.query.filter(Tasks.user_id == userid).all()
+  toReturn = []
+  for i in tasks:
+    toReturn.append({'id': i.id, 'task': i.task, 'status': i.status})
+  return toReturn
