@@ -51,13 +51,27 @@ def getTasksRoute():
   exists = sessionManager.getSession(request.remote_addr)
   if exists == False:
     return jsonify('Not logged')
-  newTasks = Tasks(sessionManager.getSession(request.remote_addr), 'Afazer', 0)
-  db.session.add(newTasks)
-  db.session.commit()
   return jsonify(getTasks(exists))
 
+@app.route("/api/createTask", methods=["POST"])
+def createTaskRoute():
+  exists = sessionManager.getSession(request.remote_addr)
+  if exists == False:
+    return jsonify('Not logged')
+  req = request.get_json()
+  newTasks = Tasks(sessionManager.getSession(request.remote_addr), req['content'], 0)
+  db.session.add(newTasks)
+  db.session.commit()
+  return jsonify('Create task: {}'.format(req['content']))
+
+@app.route("/api/updateTask/<taskid>")
+def updateTaskRoute(taskid):
+  exists = sessionManager.getSession(request.remote_addr)
+  if exists == False:
+    return jsonify("Not logged")
+  return jsonify(updateTask(taskid, exists))
+
 """
-@app.route("api/gettasks")
 @app.route("api/updatetask/<taskid>")
 @app.route("api/deletetask/<taskid>")
 """

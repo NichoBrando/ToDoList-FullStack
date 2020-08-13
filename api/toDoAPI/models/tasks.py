@@ -17,3 +17,11 @@ def getTasks(userid):
   for i in tasks:
     toReturn.append({'id': i.id, 'task': i.task, 'status': i.status})
   return toReturn
+
+def updateTask(task, userid):
+  taskQuery = Tasks.query.filter(Tasks.user_id == userid).filter(Tasks.id == task).first()
+  if taskQuery != None:
+    taskQuery.status = not(taskQuery.status)
+    db.session.commit()
+    return "Sucess"
+  return 0
