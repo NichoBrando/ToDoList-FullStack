@@ -1,5 +1,8 @@
 from toDoAPI.models.user import login 
 
+#this class manage the sessions in this API. each time that anyone want to use, they will need
+#to register or login in API.
+
 class Sessions():
   def __init__(self):
     self._activeSessions = {}
@@ -10,9 +13,9 @@ class Sessions():
   def logout(self, ip):
     try:
       del self._activeSessions[ip]
-      return 'deslogado com sucesso'
+      return 1
     except:
-      return 'erro'
+      return 0
   
   def getSession(self, ip):
     userid = self._activeSessions.get(ip, -1)
