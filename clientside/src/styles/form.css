@@ -1,0 +1,71 @@
+/*SVG with absolute, to organize waves*/
+svg{
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.waveOverflow{
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.top{
+  top: 0;
+}
+.bottom{
+  bottom: 0;
+}
+/*Form with flex, to center all itens*/
+.form{
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+@media (min-width: 600px){
+  .form{
+    width: 50%;
+  }
+}
+@media (min-width: 1000px){
+  .form{
+    width: 25%;
+  }
+}
+.form input{
+  padding: 5px;
+  width: 100%;
+  background: rgba(0,0,0,0);
+  border: 2px solid black;
+  margin-top: 10px;
+  color: black;
+  transition: 0.5s background-color;
+}
+.form input:focus{
+  background-color: black;
+  color: white;
+}
+.form button{
+  margin-top: 10px;
+  background-color: rgba(0,0,0,0);
+  border: 2px solid black;
+  border-radius: 20px;
+  color: black;
+  padding: 10px;
+  font-size: 15px;
+  transition: 0.5s background-color;
+}
+.form button:hover, .form button:focus{
+  background-color: black;
+  color: white;
+}

@@ -1,3 +1,4 @@
+/*Using flexbox in Footer, to organize the components*/
 .Footer{
   background-color: #373737;
   position: relative;
@@ -35,6 +36,7 @@
 .contacts a:hover{
   color: red;
 }
+/*Media query, to change the direction of itens*/
 @media (min-width: 600px){
   .footerContents{
     flex-direction: row;

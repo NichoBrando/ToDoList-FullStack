@@ -1,3 +1,5 @@
+/*Header elements, such as logo, Register button, Login button, create task button*/
+*{text-decoration: none;}
 .topHeader{
   width: 100%;
   background-color: #A5BEFF;
@@ -7,21 +9,36 @@
   position: relative;
   height: 10%;
 }
-.topHeader h1, button{
+.topHeader h1, .topHeader button{
   font-family: 'Lemonada', cursive;
-}
-.topHeader h1{
   font-size: 20px;
 }
-.topHeader button{
+.topHeader button, .topHeader .option, .topHeader a{
   border: none;
   background-color: rgba(0,0,0,0);
-  font-size: 18px;
+  color: black;
   transition: 0.3s color;
 }
-.topHeader button:hover{
+.topHeader button:hover, .topHeader .option:hover, .topHeader a:hover{
   color: lightcoral;
 }
 .topHeader button:focus{
   outline: none;
+}
+button.createTaskButton{
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  border: 3px double grey;
+  padding: 5px;
+  z-index: 10;
+  transition: 0.3s background-color;
+}
+button.createTaskButton:hover{
+  background-color: gold;
+  border-color: white;
+  color: black;
+}
+#userMenu:hover .createTaskButton{
+  display: block;
 }

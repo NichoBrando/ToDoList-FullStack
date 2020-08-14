@@ -14,10 +14,10 @@ class Footer extends React.Component{
             </div>
             <div className = "contacts">
               <ul>
-                <li><a href = "https://github.com/NichoBrando" 
-                target = "_blank">GitHub</a></li>
-                <li><a href = "https://www.linkedin.com/in/nicholas-brandao-developer/" 
-                target = "_blank">LinkedIn</a></li>
+                <li><a href = "https://github.com/NichoBrando" >
+                  GitHub</a></li>
+                <li><a href = "https://www.linkedin.com/in/nicholas-brandao-developer/">
+                  LinkedIn</a></li>
               </ul>
             </div>
             <div className = "aboutProject">
