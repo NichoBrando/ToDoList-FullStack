@@ -29,6 +29,9 @@ In clientside, run `npm start` to start frontend.
 ### Register You User
 ![create user](https://github.com/NichoBrando/Presentation/blob/master/registerTeste.gif)
 
+### Create Tasks
+![create tasks](https://github.com/NichoBrando/Presentation/blob/master/createTask.gif)
+
 ### Update Tasks
 ![update task](https://github.com/NichoBrando/Presentation/blob/master/updateTask.gif)
 
