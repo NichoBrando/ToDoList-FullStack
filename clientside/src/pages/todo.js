@@ -107,10 +107,10 @@ class Index extends React.Component{
         <div className = "content">
           <h2>Tasks</h2>
           <div className="todo">
-            {this.state.todo.map(element => {
+            {this.state.todo.map((element, index) => {
               return(
                 <React.Fragment>
-                <div className="taskDiv">
+                <div className="taskDiv" style={{animationDelay: (index * 100 ) + 'ms'}}>
                   <div className = "taskToDo">
                     <button className = "delete" onClick = {() => this.deleteTask(element.id)}>Delete</button>
                     <p>

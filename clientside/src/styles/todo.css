@@ -45,6 +45,18 @@ html, body{height: 100%;}
   border-radius: 20px;
   margin-top: 20px;
   overflow: hidden;
+  position: relative;
+  opacity: 0;
+  animation: 1.5s TurnVisible normal forwards;
+}
+@keyframes TurnVisible{
+  from{
+    top: 10px;
+  }
+  to{
+    opacity: 1;
+    top: 0;
+  }
 }
 .taskToDo{
   position: relative;
